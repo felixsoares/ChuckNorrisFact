@@ -1,6 +1,7 @@
 package com.felix.chucknorrisfact.core.di
 
 import com.felix.chucknorrisfact.core.data.remote.ApiService
+import com.google.android.datatransport.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,9 +21,8 @@ object RemoteModule {
     @Provides
     fun provideLoggingInterceptor() = HttpLoggingInterceptor().apply {
         setLevel(
-            HttpLoggingInterceptor.Level.BODY
-//            if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
-//            else HttpLoggingInterceptor.Level.NONE
+            if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
+            else HttpLoggingInterceptor.Level.NONE
         )
     }
 
