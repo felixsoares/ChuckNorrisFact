@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Chuck Norris Fact</string>
+    <string name="app_bar_title">Chuck Norris Fact</string>
+    <string name="app_bar_title_with_option">Chuck Norris Fact - %s</string>
+    <string name="error_message">Chuck Norris kicked the servers, try again latter!</string>
+    <string name="retry">Retry</string>
+    <string name="next_fact">Next Fact</string>
+    <string name="categories">Select a category</string>
+</resources>

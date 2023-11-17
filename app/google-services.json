@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "496411299081",
+    "project_id": "chucknorrisfact-37267",
+    "storage_bucket": "chucknorrisfact-37267.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:496411299081:android:1019964c3d166d507157d8",
+        "android_client_info": {
+          "package_name": "com.felix.chucknorrisfact"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVYwqueTazQT7LKnqmgKsPCEah_EbwozY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
