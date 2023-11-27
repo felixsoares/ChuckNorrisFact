@@ -31,6 +31,7 @@ class FactRemoteDataSourceImpl @Inject constructor(
                 .filter {
                     it.name != "explicit" && it.name != "religion"
                 }
+                .shuffled()
             ResultState.Success(categories)
         } catch (e: Exception) {
             ResultState.Error(e)
