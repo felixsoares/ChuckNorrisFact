@@ -26,7 +26,11 @@ class FactRemoteDataSourceImpl @Inject constructor(
     override suspend fun getCategories(): ResultState<List<Category>> {
         return try {
             val response = apiService.getCategories()
-            val categories = response.toCategories()
+            val categories = response
+                .toCategories()
+                .filter {
+                    it.name != "explicit" && it.name != "religion"
+                }
             ResultState.Success(categories)
         } catch (e: Exception) {
             ResultState.Error(e)

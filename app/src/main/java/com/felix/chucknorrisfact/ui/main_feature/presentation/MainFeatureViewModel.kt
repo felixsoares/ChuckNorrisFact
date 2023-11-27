@@ -54,6 +54,9 @@ class MainFeatureViewModel @Inject constructor(
                                 uiDrawerState = uiDrawerState.copy(
                                     categories = resultState.data
                                 )
+                                uiDrawerState = uiDrawerState.copy(
+                                    selectedCategory = uiDrawerState.categories.firstOrNull()?.name
+                                )
                             }
                         }
 
