@@ -17,7 +17,6 @@ import com.felix.chucknorrisfact.R
 @Composable
 fun MainTopBar(
     selectedCategory: String?,
-    hasCategories: Boolean,
     onClickMenuIcon: () -> Unit
 ) {
     val appBarTitle = if (selectedCategory != null) {
@@ -36,21 +35,17 @@ fun MainTopBar(
                 style = MaterialTheme.typography.headlineSmall,
             )
         },
-        navigationIcon = if (hasCategories) {
-            {
-                IconButton(
-                    onClick = {
-                        onClickMenuIcon()
-                    }
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Menu,
-                        contentDescription = null,
-                    )
+        navigationIcon = {
+            IconButton(
+                onClick = {
+                    onClickMenuIcon()
                 }
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Menu,
+                    contentDescription = null,
+                )
             }
-        } else {
-            { }
         }
     )
 }

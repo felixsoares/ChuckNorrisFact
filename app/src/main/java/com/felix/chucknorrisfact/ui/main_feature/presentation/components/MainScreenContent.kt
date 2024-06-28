@@ -20,7 +20,8 @@ fun MainScreenContent(
     paddingValues: PaddingValues,
     onRequestFact: () -> Unit,
     onRetry: () -> Unit,
-    onShareRequest: (Fact) -> Unit
+    onShareRequest: (Fact) -> Unit,
+    onSelectFavorite: (Fact) -> Unit
 ) {
 
     Column(
@@ -50,12 +51,16 @@ fun MainScreenContent(
                     modifier = Modifier,
                     fact = state.fact,
                     isLoadingFact = state.isLoadingFact,
+                    isFavote = state.isFavorite,
                     onRequestFact = {
                         onRequestFact()
                     },
                     onShareRequest = {
                         onShareRequest(it)
                     },
+                    onSelectFavorite = {
+                        onSelectFavorite(it)
+                    }
                 )
             }
         }
@@ -78,6 +83,7 @@ fun MainScreenContentPreview() {
         paddingValues = PaddingValues(),
         onRequestFact = {},
         onRetry = {},
-        onShareRequest = {}
+        onShareRequest = {},
+        onSelectFavorite = {}
     )
 }

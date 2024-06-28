@@ -1,4 +1,4 @@
-package com.felix.chucknorrisfact.ui.theme
+package com.felix.chucknorrisfact.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,6 +1,7 @@
 package com.felix.chucknorrisfact.ui.main_feature.di
 
 import com.felix.chucknorrisfact.core.data.remote.ApiService
+import com.felix.chucknorrisfact.ui.favorite_feature.domain.repository.FactFavoriteRepository
 import com.felix.chucknorrisfact.ui.main_feature.data.repository.FactRepositoryImpl
 import com.felix.chucknorrisfact.ui.main_feature.data.source.FactRemoteDataSourceImpl
 import com.felix.chucknorrisfact.ui.main_feature.domain.repository.FactRepository
@@ -9,6 +10,10 @@ import com.felix.chucknorrisfact.ui.main_feature.domain.usecase.GetCategoriesUse
 import com.felix.chucknorrisfact.ui.main_feature.domain.usecase.GetCategoriesUseCaseImpl
 import com.felix.chucknorrisfact.ui.main_feature.domain.usecase.GetFactUseCase
 import com.felix.chucknorrisfact.ui.main_feature.domain.usecase.GetFactUseCaseImpl
+import com.felix.chucknorrisfact.ui.main_feature.domain.usecase.IsFactFavoriteUseCase
+import com.felix.chucknorrisfact.ui.main_feature.domain.usecase.IsFactFavoriteUseCaseImpl
+import com.felix.chucknorrisfact.ui.main_feature.domain.usecase.SaveFactsFavoriteUseCase
+import com.felix.chucknorrisfact.ui.main_feature.domain.usecase.SaveFactsFavoriteUseCaseImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -43,4 +48,15 @@ object MainFeatureModule {
         factRepository: FactRepository
     ): GetCategoriesUseCase = GetCategoriesUseCaseImpl(factRepository)
 
+    @Provides
+    @Singleton
+    fun providesSaveFactsFavoriteUseCase(
+        factFavoriteRepository: FactFavoriteRepository
+    ): SaveFactsFavoriteUseCase = SaveFactsFavoriteUseCaseImpl(factFavoriteRepository)
+
+    @Provides
+    @Singleton
+    fun providesIsFavoriteLocalDataSource(
+        factFavoriteRepository: FactFavoriteRepository
+    ): IsFactFavoriteUseCase = IsFactFavoriteUseCaseImpl(factFavoriteRepository)
 }

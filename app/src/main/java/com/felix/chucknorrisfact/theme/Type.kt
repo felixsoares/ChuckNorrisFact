@@ -1,4 +1,4 @@
-package com.felix.chucknorrisfact.ui.theme
+package com.felix.chucknorrisfact.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

@@ -7,4 +7,5 @@ data class MainScreenState(
     val isLoadingFact: Boolean = false,
     val isLoading: Boolean = false,
     val isError: Boolean = false,
+    val isFavorite: Boolean = false
 )

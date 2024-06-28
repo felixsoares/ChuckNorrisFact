@@ -1,4 +1,4 @@
-package com.felix.chucknorrisfact.ui.theme
+package com.felix.chucknorrisfact.theme
 
 import android.app.Activity
 import android.os.Build

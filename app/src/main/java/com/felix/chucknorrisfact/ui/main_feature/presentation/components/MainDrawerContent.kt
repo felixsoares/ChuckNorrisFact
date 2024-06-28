@@ -1,9 +1,11 @@
 package com.felix.chucknorrisfact.ui.main_feature.presentation.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalDrawerSheet
@@ -26,13 +28,38 @@ fun MainDrawerContent(
     categories: List<Category>,
     selectedCategory: String?,
     onSelectCategory: (String) -> Unit,
+    navigateToFavorites: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    ModalDrawerSheet {
+    ModalDrawerSheet(
+        modifier = modifier,
+    ) {
+        Text(
+            text = stringResource(id = R.string.options),
+            modifier = Modifier
+                .padding(20.dp)
+                .fillMaxWidth(),
+            style = MaterialTheme.typography.titleLarge.copy(
+                fontWeight = FontWeight.Bold
+            ),
+            textAlign = TextAlign.Center
+        )
+        Text(
+            text = stringResource(id = R.string.favorites),
+            style = MaterialTheme.typography.titleMedium.copy(
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Normal
+            ),
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable { navigateToFavorites() },
+            textAlign = TextAlign.Center
+        )
+        if (categories.isNotEmpty()) {
+        Divider(modifier = Modifier.padding(top = 20.dp, bottom = 20.dp))
         Text(
             text = stringResource(id = R.string.categories),
             modifier = Modifier
-                .padding(20.dp)
                 .fillMaxWidth(),
             style = MaterialTheme.typography.titleLarge.copy(
                 fontWeight = FontWeight.Bold
@@ -67,6 +94,7 @@ fun MainDrawerContent(
                 )
             }
         }
+            }
     }
 }
 
@@ -80,6 +108,7 @@ fun MainDrawerContentPreview() {
             Category("category3"),
         ),
         selectedCategory = "category1",
-        onSelectCategory = {}
+        onSelectCategory = {},
+        navigateToFavorites = {}
     )
 }
