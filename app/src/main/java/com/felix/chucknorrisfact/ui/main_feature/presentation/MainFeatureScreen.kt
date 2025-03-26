@@ -26,7 +26,6 @@ fun MainFeatureScreen(
     val uiState = viewModel.uiState
 
     val uiDrawerState = viewModel.uiDrawerState
-    val categories = uiDrawerState.categories
 
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
